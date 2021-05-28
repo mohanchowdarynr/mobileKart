@@ -1,3 +1,4 @@
-.home{
-    height: 4000px;
-}
+.hero-image {
+    width: 100%;
+    cursor: pointer;
+  }
