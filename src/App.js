@@ -1,14 +1,29 @@
-import './App.css';
-import Home from './components/Home/Home';
-import Header from './components/Navbar/Header';
+import React, { useContext } from 'react'
+import Home from './Pages/Home'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Navbar from './Components/Navbar';
+import ProductsPage from './Pages/ProductsPage';
+import { ProductContext } from './ProductContext';
 
-function App() {
+const App = () => {
   return (
-      <div className="App">
-        <Header />
-        <Home />
-      </div>
-  );
+    <>
+    <Router>
+     <ProductContext.Provider value={2}>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/ProductsPage" component={ProductsPage}></Route>
+      </Switch>
+      </ProductContext.Provider>
+    </Router>
+    </>
+  )
 }
 
-export default App;
+export default App
+
