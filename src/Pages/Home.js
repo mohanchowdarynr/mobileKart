@@ -10,13 +10,13 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <>
-           <div className="body w-11/12 mx-auto ">
-           <div className="hero py-2 ">
-               <Link to="/ProductsPage"><img className="image h-3/6 object-fill" src={home} alt="hero" /></Link>
+           <div className="w-11/12 mx-auto">
+           <div className="hero py-2">
+               <Link to="/ProductsPage"><img className="object-cover" src={home} alt="hero" /></Link>
            </div>
            <div className="Brands">
-           <h1 className="text-3xl font-bold my-2 text-gray-700 text-center">Brands</h1>
-              <div className="container grid grid-cols-4 gap-24 mt-8 uppercase">
+           <h1 className="text-xl md:text-3xl font-bold my-2 text-gray-700 text-center">Brands</h1>
+              <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 md:gap-16  mt-8 uppercase">
                 <Brands img={oneplus} brand="oneplus"/>
                 <Brands img={samsung} brand="samsung"/>
                 <Brands img={mi} brand="mi"/>

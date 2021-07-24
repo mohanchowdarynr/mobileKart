@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
-import { productsList } from "../dummyData";
+import React, { useContext } from 'react'
 import Mobile from './Mobile';
+import ProductContext from '../Context/ProductContext';
 
 const Products = () => {
-    const [list,setList] = useState(productsList);
+    const { products } = useContext(ProductContext);
+    // const [list,setList] = useState(productsList);
 
-    const data = [...list];
+    const data = products;
     return (
-        <div className="productDetails grid grid-cols-4 gap-12 my-8">
+        <div className="productDetails grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 my-8">
             { data && data.map(item => <Mobile
             item={item} 
             key={item.itemId}

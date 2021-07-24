@@ -1,11 +1,12 @@
 import {addToCart, removeFromCart,saveForLater,moveToCart} from './Types';
-
+import { productsList } from "../dummyData";
 import { useReducer} from "react";
 import ProductContext from "./ProductContext";
 import ProductReducer from './ProductReducer';
 
 const ProductState = ({children}) => {
     const initialState = {
+        products : productsList,
         cartItems:[],
         saveForLater:[],
         totalItems:0,
@@ -38,7 +39,7 @@ const addCart = item =>{
 
     return (
         <ProductContext.Provider value={{cartItems:state.cartItems,addCart,saveCart,removeCart,moveCart,
-        totalItems:state.totalItems,saveLater:state.saveForLater,savedItems:state.savedItems}}>
+        totalItems:state.totalItems,saveLater:state.saveForLater,savedItems:state.savedItems,products : state.products}}>
             {children}
         </ProductContext.Provider>
     )
