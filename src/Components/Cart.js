@@ -1,20 +1,40 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ProductContext from "../Context/ProductContext";
 import CartItem from "./CartItem";
-import SaveItems from "./SaveItems";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const [price, setPrice] = useState();
-  const { cartItems, saveLater } = useContext(ProductContext);
+  const { cartItems, orderItem } = useContext(ProductContext);
   const cart = cartItems;
-  const saved = saveLater;
 
-  console.log(saved);
   useEffect(() => {
     setPrice(cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [cart]);
+
+  const notify = () => toast("ordered successfully");
+
+  if (cart.length < 1) {
+    return (
+      <div className="flex flex-col w-11/12 mx-auto min-h-screen">
+        <div className="flex flex-col m-auto justify-center items-center">
+          <h1 className="text-base md:text-xl font-bold my-2 text-gray-700 mb-3">
+            Your cart is empty{" "}
+          </h1>
+          <Link to="/ProductsPage">
+            <button className="p-2 m-auto bg-red-500 text-gray-50">
+              Add products
+            </button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="w-11/12 mx-auto min-h-screen">
+    <ToastContainer />
       <h1 className="text-base md:text-xl font-bold my-2 text-gray-700 text-center">
         Cart Items
       </h1>
@@ -33,20 +53,18 @@ const Cart = () => {
           <h1 className="font-medium md:font-bold text-gray-700 tracking-wide border-t-2 border-opacity-8 py-2">
             Total : <span>{price}</span>
           </h1>
-          <button className="p-2 bg-red-500 text-gray-50 font-bold rounded">
+          <button
+            className="p-2 bg-red-500 text-gray-50 font-bold rounded"
+            onClick={() => {
+              orderItem();
+              notify();
+            }}
+          >
             Confirm
           </button>
         </div>
       </div>
-      <h1 className="text-base md:text-xl font-bold my-2 text-gray-700 text-center">
-        Saved Items{" "}
-      </h1>
-
-      <div className="flex">
-        <div className="mx-auto min-h-screen">
-          {saved && saved.map((item) => <SaveItems item={item} />)}
-        </div>
-      </div>
+      
     </div>
   );
 };

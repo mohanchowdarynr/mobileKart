@@ -32,13 +32,13 @@ const CartItem = ({ item }) => {
               onClick={() => saveCart(item)}
               className=" bg-red-500 text-white py-1 px-4 my-2 rounded-full font-medium md:font-bold"
             >
-              Save for Later
+              Wishlist
             </button>
           </div>
           <div className="justify-center mx-auto text-center mt-2">
             <button
               onClick={() => removeCart(item.itemId)}
-              className=" bg-gray-700 text-white py-1 px-4 my-2 rounded-full font-medium font-bold"
+              className=" bg-gray-700 text-white py-1 px-4 my-2 rounded-full font-bold"
             >
               Remove
             </button>

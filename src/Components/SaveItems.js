@@ -4,6 +4,7 @@ const SaveItems = ({ item }) => {
   const { moveCart } = useContext(ProductContext);
   return (
     <div>
+    
       <div className="content flex border border-gray-600 rounded-2xl border-opacity-10 my-4 py-4 ">
         <div className="left">
           <img

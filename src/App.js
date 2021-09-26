@@ -9,16 +9,19 @@ import Navbar from './Components/Navbar';
 import ProductsPage from './Pages/ProductsPage';
 import CartPage from './Pages/CartPage';
 import BottomBar from './Components/BottomBar';
+import Wishlist from './Pages/Wishlist';
+import "tailwindcss/tailwind.css";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-gray-50 relative">
     <Router>
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home}></Route>
         <Route path="/ProductsPage" component={ProductsPage}></Route>
         <Route path="/CartPage" component={CartPage}></Route>
+        <Route path="/Wishlist" component={Wishlist}></Route>
       </Switch>
       <BottomBar />
     </Router>

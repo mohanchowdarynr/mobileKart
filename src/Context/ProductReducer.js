@@ -1,4 +1,4 @@
-import { addToCart, removeFromCart, saveForLater, moveToCart } from "./Types";
+import { addToCart, removeFromCart, saveForLater, moveToCart,orderCart } from "./Types";
 
 const ProductReducer = (state, action) => {
   switch (action.type) {
@@ -35,6 +35,13 @@ const ProductReducer = (state, action) => {
         saveForLater: [...movedCart],
         cartItems: [...state.cartItems, action.payload],
       };
+    }
+
+    case orderCart : {
+      return {
+        ...state,
+        cartItems : []
+      }
     }
 
     default:

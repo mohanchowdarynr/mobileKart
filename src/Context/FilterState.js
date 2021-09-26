@@ -1,18 +1,19 @@
 import React from 'react'
-import { productsList } from "../dummyData";
-const FilterState = () => {
-    // const data = productsList;
 
-    const initialState = {
-        products : productsList,
-        filtered_products: [],
-        sort: 'high-low'
-    }
+const initialState = {
+   brands:[],
+}
+
+const FilterState = () => {
     const [state, dispatch] = useReducer(reducer, initialState)
     return (
-        <div>
-            
-        </div>
+        <FilterContext.Provider
+      value={{
+        brands : state.brands
+      }}
+    >
+      {children}
+    </FilterContext.Provider>
     )
 }
 

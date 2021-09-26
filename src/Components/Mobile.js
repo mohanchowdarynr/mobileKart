@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import ProductContext from "../Context/ProductContext";
+import { Link } from "react-router-dom";
 
 const Mobile = ({ item }) => {
   const { addCart } = useContext(ProductContext);
-  // console.log(isAdded);
   return (
-    <div className="content border border-gray-600 rounded-2xl border-opacity-10 ">
+    <div className="content border border-gray-600 rounded-2xl border-opacity-10 shadow-xl">
       <img
         className="img h-72 w-72 object-contain mx-auto"
         src={item.imageURL}
@@ -26,12 +26,14 @@ const Mobile = ({ item }) => {
         </span>
       </div>
       <div className="justify-center mx-auto text-center mt-2">
+      <Link to='/CartPage'>
         <button
           onClick={() => addCart(item)}
-          className="bg-gray-700 text-white py-1 px-2 md:px-4 my-2 rounded-full font-medium md:font-bold"
+          className="bg-gray-700 text-white py-1 px-2 md:px-4 my-3 rounded-full font-medium md:font-bold"
         >
-          Add To Cart
+        Add to cart
         </button>
+        </Link>
       </div>
     </div>
   );
