@@ -11,11 +11,14 @@ import CartPage from './Pages/CartPage';
 import BottomBar from './Components/BottomBar';
 import Wishlist from './Pages/Wishlist';
 import "tailwindcss/tailwind.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <div className="bg-gray-50 relative">
     <Router>
+    <ToastContainer />
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home}></Route>

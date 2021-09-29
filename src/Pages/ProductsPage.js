@@ -1,5 +1,4 @@
 import React from "react";
-import Filters from "../Components/Filters";
 import Products from "../Components/Products";
 
 const ProductsPage = () => {
@@ -9,9 +8,9 @@ const ProductsPage = () => {
         Products
       </h1>
       <div className="flex">
-      <div className="flex-auto">
+      {/* <div className="flex-auto">
         <Filters />
-        </div>
+        </div> */}
         <div>
         <Products />
         </div>

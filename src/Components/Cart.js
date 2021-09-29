@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductContext from "../Context/ProductContext";
 import CartItem from "./CartItem";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
@@ -14,7 +14,7 @@ const Cart = () => {
     setPrice(cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [cart]);
 
-  const notify = () => toast("ordered successfully");
+  const notify = () => toast.success("ordered successfully", { position: toast.POSITION.BOTTOM_CENTER});
 
   if (cart.length < 1) {
     return (
@@ -34,7 +34,7 @@ const Cart = () => {
   }
   return (
     <div className="w-11/12 mx-auto min-h-screen">
-    <ToastContainer />
+    
       <h1 className="text-base md:text-xl font-bold my-2 text-gray-700 text-center">
         Cart Items
       </h1>
